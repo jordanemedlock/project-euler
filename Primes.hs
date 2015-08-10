@@ -11,6 +11,7 @@ find2km = f 0
 -- n is the number to test; a is the (presumably randomly chosen) witness
 millerRabinPrimality :: Integer -> Integer -> Bool
 millerRabinPrimality n a
+    | n == 2 = True
     | a <= 1 || a >= n-1 = 
         error $ "millerRabinPrimality: a out of range (" 
               ++ show a ++ " for "++ show n ++ ")" 
@@ -53,3 +54,5 @@ powMod m = pow' (mulMod m) (squareMod m)
 
 isPrime :: Integer -> Bool
 isPrime x = x == 3 || millerRabinPrimality x 2
+
+primes = 2 : filter isPrime [3..]
