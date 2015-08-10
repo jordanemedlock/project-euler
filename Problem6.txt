@@ -1,0 +1,31 @@
+two functions:
+
+sumOfSquares:
+
+movl $100 %ecx
+movq $0 %r8
+loop:
+  movl %ecx %edx
+  imull %ecx %edx
+  addq %edx %r8
+cmp %ecx $0
+jg loop
+
+%r8 is the value so I cant use this next time 
+
+movl $100 %ecx
+movq $0 %r9
+loop2:
+  addq %ecx %r9
+cmp %ecx $0
+jg loop2
+
+imulq %r9 %r9
+
+subq %r9 %r8
+
+printfStuff
+
+
+
+squareOfSum:
